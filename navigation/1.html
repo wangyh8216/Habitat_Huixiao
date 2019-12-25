@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title></title>
+    <style type="text/css">
+        body{
+            margin:0;
+            padding:0
+			background:#00a0fc;
+            overflow:hidden;
+			color:#ffffff;
+        }
+        /*这一层是自己添加的，源代码是直接menu为最外层，但是这样不利于布局*/
+        #box{
+            width:100%;
+            height: 200px;
+            position: relative;
+        }
+        #menu{
+	position: absolute;
+	width: 1094px;
+	min-width: 1000px;
+	bottom: -285px;
+	text-align: center;
+	left: 130px;
+        }
+	</style>
+	
+	<style type="text/css">
+
+	html,body{
+		width: 100%;
+		height: 100%;
+		background: url(images/background/background.jpg) bottom center no-repeat #efeff4 ;
+		background-size: 100% 100%;
+		width: 100%;
+		height: 100%;
+	}
+
+
+    </style>
+</head>
+<body>
+<div id="box">
+	<p><strong>
+	<div style="font-size:100px; color:#F00">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;云平台</div>
+  
+
+	<div id="menu">
+	  <br>
+	  <p><a href="1.html"> <img src="images/数据地图.png" onmouseover="writeText('数据地图')"/></a>
+          <a href="2.html"> <img src="images/数据查看.png" onmouseover="writeText('数据查看')"/></a>
+          <a href="3.html"> <img src="images/历史曲线.png" onmouseover="writeText('历史曲线')"/></a>
+          <a href="4.html"> <img src="images/查看报警.png" onmouseover="writeText('查看报警')"/></a>
+          <a href="5.html"> <img src="images/网关设备管理.png" onmouseover="writeText('网关设备管理')"/></a>
+		  <a href="6.html"> <img src="images/传感器列表.png" onmouseover="writeText('传感器列表')"/></a>
+		  <a href="7.html"> <img src="images/传感器命名.png" onmouseover="writeText('传感器命名')"/></a>
+		  <a href="/FEMS/WebContent/front/refer/vuejs-sticky-sort-table/index.html"> <img src="images/进入系统.png" onmouseover="writeText('进入系统')"/></a></p>
+		<p>
+		<font id="show_word" size=7 color="#FF0000">提示信息</p>
+		<font>
+		
+  </div>
+</div>
+</body>
+
+<script type="text/javascript">
+		function writeText(txt){
+			document.getElementById("show_word").innerHTML=txt;
+		}
+</script>
+		
+		
+<script type="text/javascript">
+    window.onload = function ()
+    {
+        var oMenu = document.getElementById("menu");
+        var aImg = oMenu.getElementsByTagName("img");
+        var aWidth = [];
+        var i = 0;
+        //保存原宽度, 并设置当前宽度
+        for (i = 0; i < aImg.length; i++)
+        {
+            aWidth.push(aImg[i].offsetWidth);  //当前图片为128px乘128px
+            aImg[i].width = parseInt(aImg[i].offsetWidth / 2) ;  //为每一张图片设置新宽度,为原宽度/2
+        }
+        //鼠标移动事件
+        oMenu.onmousemove = function (event)
+        {
+            var EVENT = event || window.event;
+            for (i = 0; i < aImg.length; i++)
+            {
+                var a = EVENT.clientX - aImg[i].offsetLeft - oMenu.offsetLeft - aImg[i].offsetWidth / 2;
+                var b = EVENT.clientY - aImg[i].offsetTop - oMenu.offsetTop - aImg[i].offsetHeight / 2;
+                var iScale = 1 - Math.sqrt(a * a + b * b) / 300;
+                if (iScale < 0.5) iScale = 0.5;
+                aImg[i].width = aWidth[i] * iScale;
+            }
+        };
+    };
+</script>
+
+
+<script type="text/javascript" src="js/jquery-1.8.3.js"></script>
+<script type="text/javascript">
+//    窗口大小
+    var oPageX=window.screen.width;
+    var oPageY=window.screen.height;
+    var aSnow=[];
+//    雪花模板
+    function snow(x,y,xspeed,yspeed,xsin,size){//x水平位置,y垂直位置,xspeed水平步距,yspeed垂直步距,xsin振幅,size雪花大小
+        this.node=document.createElement('div');
+        this.x=x;
+        this.y=y;
+        this.xspeed=xspeed;
+        this.yspeed=yspeed;
+        this.xsin=xsin;
+        this.size=size;
+        this.createSnow=function(){
+            this.node.style.position='absolute';
+            this.node.style.top=this.y+'px';
+            this.node.style.left=this.x+'px';
+            this.node.innerHTML='*';
+            document.body.appendChild(this.node);
+        };
+        this.createSnow();
+        this.snowMove=function(){
+            this.node.style.top=parseInt(this.node.style.top)+this.yspeed+'px';//垂直方向运动
+            this.node.style.left=parseInt(this.node.style.left)+this.xsin*Math.sin(this.xspeed)+'px';
+            this.node.style.fontSize=this.size+'px';
+//            this.node.style.color='rgb('+Math.ceil(Math.random()*255)+','+Math.ceil(Math.random()*255)+','+Math.ceil(Math.random()*255)+')';
+        };
+    }
+//    创建雪花
+    function createSnow(){
+        aSnow.push(new snow(Math.random()*oPageX,-50,0.02+Math.random()/10,1+Math.random(),Math.random()*30,20+Math.random()*30));
+    }
+    setInterval(createSnow,1000);//一秒钟创建一个雪花
+//    雪花移动函数
+    function snowMove(){
+        for(var j=0;j<aSnow.length;j++){
+            aSnow[j].snowMove();
+            if(parseInt(aSnow[j].node.style.top)>oPageY || parseInt(aSnow[j].node.style.left)>oPageX){
+                aSnow[j].node.parentNode.removeChild(aSnow[j].node);
+                aSnow.splice(j,1);
+            }
+        }
+    }
+    setInterval(snowMove,10);
+</script>
+
+
+</html>

@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport"content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>JavaScript可展开隐藏的侧边栏下拉菜单DEMO演示</title>
+<link rel="stylesheet" type="text/css" href="css/skim.css">
+
+<script src="js/adapter.js"></script> <!--rem适配js-->
+
+<link rel="stylesheet" href="css/base.css"> <!--初始化文件-->
+<link rel="stylesheet" href="css/menu.css"> <!--主样式-->
+
+<script src="js/click.js" type="text/javascript"></script>
+
+<!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+<link rel="stylesheet" href="css/normalize.min.css">
+
+  
+<link rel="stylesheet" href="css/style.css">
+	  
+	  
+	  
+</head>
+<body>
+<div style="text-align:center;clear:both">
+<script src="/gg_bd_ad_720x90.js" type="text/javascript"></script>
+<script src="/follow.js" type="text/javascript"></script>
+
+
+
+
+
+<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+<script src="js/mouseslide.js"></script>
+<script>
+    $(".outer").each(function(i){
+        $(this).show($(".inner").eq(i));
+    });
+</script>
+
+
+
+	
+	
+	
+	
+<!-- <script> -->
+	<!-- var msg = "history_graphs"; -->
+	<!-- var msg = null; -->
+<!-- </script> -->
+
+<script>
+	var old_msg = null;
+	<!-- var times = 0; -->
+</script>
+
+</div>
+<div id="menu">
+    <!--隐藏菜单-->
+    <div id="ensconce">
+        <h2>
+            <img src="images/show.png" alt="">
+            管理平台
+        </h2>
+    </div>
+
+    <!--显示菜单-->
+    <div id="open">
+        <div class="navH">
+            管理平台
+            <span><img class="obscure" src="images/obscure.png" alt=""></span>
+        </div>
+        <div class="navBox">
+            <ul>
+                <li>
+                    <h2 class="obtain">网关/设备维护<i></i></h2>
+                    <div class="secondary">
+						<a href="javascript:void(0);" onclick=show(&quot;Gateway_management&quot;)><h3>网关/设备管理</h3></a>
+                        <a href="javascript:void(0);" onclick=show(&quot;sensors_list&quot;)><h3>传感器列表</h3></a>
+                        <a href="javascript:void(0);" onclick=show(&quot;sensors_naming&quot;)><h3>传感器命名管理</h3></a>
+                        <a href="javascript:void(0);" onclick=show(&quot;Control_instruction&quot;)><h3>控制指令管理</h3></a>
+                    </div>
+                </li>
+                <li>
+                    <h2 class="obtain">报警管理<i></i></h2>
+                    <div class="secondary">
+                        <a href="javascript:void(0);" onclick=show(&quot;limit_management&quot;)><h3>上下限管理</h3></a>
+                        <a href="javascript:void(0);" onclick=show(&quot;bound_list&quot;)><h3>上下限列表管理</h3></a>
+                        <a href="javascript:void(0);" onclick=show(&quot;alarm_checking&quot;)><h3>查看报警</h3></a>
+                    </div>
+                </li>
+                <li>
+                    <h2 class="obtain">会员信息维护<i></i></h2>
+                    <div class="secondary">
+                        <a href="javascript:void(0);" onclick=show(&quot;message_modification&quot;)><h3>信息修改</h3></a>
+                        <a href="javascript:void(0);" onclick=show(&quot;password_modification&quot;)><h3>密码修改</h3></a>
+                        <a href="javascript:void(0);" onclick=show(&quot;Entry_page&quot;)><h3>入口页定制</h3></a>
+                    </div>
+                </li>
+                <li>
+                    <h2 class="obtain">数据展示<i></i></h2>
+                    <div class="secondary">
+                        <a href="javascript:void(0);" onclick=show(&quot;data_map&quot;)><h3>数据地图</h3></a>
+                        <a href="javascript:void(0);" onclick=show(&quot;data_view&quot;)><h3>数据查看</h3></a>
+                        <!-- <h3> <a onclick="history_graphs()">-----------------历史曲线-----------------</a> </h3> -->
+						<!-- <h3> <a onclick="history_graphs()">历史曲线</a> </h3> -->
+						<!-- <a onclick="show(history_graphs)"><h3>历史曲线</h3></a>  -->
+						<!-- <a href="javascript:function history_graphs(){ var msg = history_graphs}><h3>历史曲线</h3></a>  -->
+						<!-- <a href="javascript:alert(1)"><h3>历史曲线</h3></a>  -->
+						<a href="javascript:void(0);" onclick=show(&quot;history_graphs&quot;)><h3>历史曲线</h3></a>
+                        <a href="javascript:void(0);" onclick=show(&quot;embedding_code&quot;)><h3>网页嵌人代码</h3></a>
+                    </div>
+                </li>
+                <li>
+                    <!-- <h2 class="obtain">退出<i></i></h2> -->
+					<a href="javascript:void(0);" onclick=display_none(&quot;open&quot;)><h2 class="obtain">关闭导航栏<i></i></h2></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<script src="js/menu.js"></script> <!--控制js-->
+
+<div id="history_graphs" class="photo_display">
+	<ul>
+		<li>
+			<div class="outer">
+				<img src="images/降雨量.png" width="300px" height="250px" />
+				<div class="inner">
+					降雨量
+				</div>
+			</div>
+		</li>
+		<li>
+			<div class="outer">
+				<img src="images/空气湿度.png" width="300px" height="250px" />
+				<div class="inner">
+					空气湿度
+				</div>
+			</div>
+		</li>
+		<li>
+			<div class="outer">
+				<img src="images/空气温度.png" width="300px" height="250px" />
+				<div class="inner">
+					空气温度
+				</div>
+			</div>
+		</li>
+		<li>
+			<div class="outer">
+				<img src="images/土壤湿度-1.png" width="300px" height="250px" />
+				<div class="inner">
+					土壤湿度
+				</div>
+			</div>
+		</li>
+		<li>
+			<div class="outer">
+				<img src="images/土壤湿度-2.png" width="300px" height="250px" />
+				<div class="inner">
+					土壤湿度
+				</div>
+			</div>
+		</li>
+		<li>
+			<div class="outer">
+				<img src="images/土壤温度.png" width="300px" height="250px" />
+				<div class="inner">
+					土壤温度
+				</div>
+			</div>
+		</li>
+		<li>
+			<div class="outer">
+				<img src="images/阳光照度.png" width="300px" height="250px" />
+				<div class="inner">
+					阳光照度
+				</div>
+			</div>
+		</li>
+		<li>
+			<div class="outer">
+				<img src="images/**.png" width="300px" height="250px" />
+				<div class="inner">
+					**
+				</div>
+			</div>
+		</li>
+	</ul>
+</div>
+
+
+
+
+<div style="text-align:right;clear:both;">
+<script src="/gg_bd_ad_720x90.js" type="text/javascript"></script>
+<script src="/follow.js" type="text/javascript"></script>
+</div>
+<!-- <div id="app" style="width:20px;height:200px;margin:30px 0 0 40px"></div> -->
+<!-- <div id="app" style="position:relative;left:200px;top:100px;width:400px;height:50pxleft=40%"></div> -->
+<div id="app"></div>
+<script src='js/vue.min.js'></script>
+<script src='js/smoothscroll.min.js'></script>
+
+  
+
+<script  src="js/index.js"></script>
+
+
+
+<!-- <style type="text/css"> 
+.wrapper
+ { width:670px; height:350px; margin:100px 30px; overflow:hidden; position:relative; }
+ .iframe { width:1024px;height:768px; position:absolute; top:-300px; left:-300px; }
+ </style> 
+<div class="wrapper"> 
+
+<iframe name="wrapper" marginwidth=0 marginheight=0 width=100% height=“600” src="C:\Users\Administrator\Desktop\云平台代码\参考正准备用\vuejs-sticky-sort-table\vuejs-sticky-sort-table\index.html" frameborder=0></iframe> -->
+<!-- <iframe name="wrapper" marginwidth=0 marginheight=0 width=100% height=“600” src="C:\Users\Administrator\Desktop\云平台代码\参考正准备用\vuejs-sticky-sort-table\vuejs-sticky-sort-table\index.html" frameborder=0></iframe> -->
+
+<!-- <iframe class="iframe" src="http://www.baidu.com" scrolling="no" frameborder="0">
+ </iframe> -->
+ </div>
+<!-- <script type="text/javascript">
+	document.getElementById("history_graphs").style.display="none";
+</script> -->
+
+
+
+</body>
+</html>

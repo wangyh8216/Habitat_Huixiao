@@ -1,0 +1,12 @@
+*{margin:0;padding:0;}
+#history_graphs ul,li{list-style:none;}
+div{font-family:"Microsoft YaHei";}
+body{width: 900px;}
+#history_graphs ul{overflow: hidden;}
+#history_graphs ul li{float:left;}
+#history_graphs ul li .outer{width:300px; height:250px;}
+#history_graphs ul li .outer .inner{width:300px; height:250px; background:rgba(0, 0, 0, .3);}
+
+
+/* #history_graphs{display:none} */
+.photo_display{display:none;}

@@ -1,0 +1,142 @@
+
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<html xmlns="http://www.w3.org/1999/xhtml">  
+<head>  
+	<title>设备管理信息</title>
+	<meta http-equiv="pragma" content="no-cache"/>
+	<meta http-equiv="cache-control" content="no-cache"/>
+	<meta http-equiv="expires" content="0"/>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<script type="text/javascript" src="/js/jquery-1.11.1.min.js"></script>
+  <script type="text/javascript" src="/js/channelLimitEdit.js"></script>
+	<style type="text/css">
+	.STYLE1{font-size: 12px}
+	tr{height: 25px}
+	</style>
+	<script type='text/javascript'>var path='';if(""!="") alert("");</script>
+</head>
+<body onload="onload();">
+<form name="channelLimit" method="post" enctype="multipart/form-data">
+<input type="hidden" id="ChannelLimitId" value=""/>
+<input type="hidden" id="upup" value="" />
+<input type="hidden" id="up" value="" />
+<input type="hidden" id="low" value=""/>
+<input type="hidden" id="lowlow" value=""/>
+<input type="hidden" id="channelLimitgateway" value=""/>
+<input type="hidden" id="channelLimitsensorName" value=""/>
+<input type="hidden" id="channelLimitchannelName" value=""/>
+
+<input type="hidden" id="upctrlSave" value=""/>
+<input type="hidden" id="upGidSave" value=""/>
+<input type="hidden" id="upSidSave" value=""/>
+<input type="hidden" id="upCidSave" value=""/>
+<input type="hidden" id="lowctrlSave" value=""/>
+<input type="hidden" id="lowGidSave" value=""/>
+<input type="hidden" id="lowSidSave" value=""/>
+<input type="hidden" id="lowCidSave" value=""/>
+	 <div id="apDiv1">                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
+	 	<table width="500px" border="0" align="center" cellpadding="0" cellspacing="1" >
+	 		<tr>
+	 			<td width="142" class="STYLE1" nowrap="nowrap">网关数据：</td>
+	 			<td>
+	 				<select id="gatewayId" name="gatewayId" onchange="findSensor(this.options[this.options.selectedIndex].value);">
+	 					<option value="">---请选择---</option>
+							
+								<option value="848">物联网关1</option>
+								<option value="848">物联网关2</option>
+								<option value="848">物联网关3</option>
+								<option value="848">物联网关4</option>
+							
+					</select>			
+				</td>
+	 		</tr>
+	 		<tr>
+	 			<td width="142" class="STYLE1" nowrap="nowrap">传感器序号：</td>
+	 			<td>
+	 				<select name="sensorName" id="sensorName" onchange="findchannel(this.options[this.options.selectedIndex].value);">
+						<option value="" selected="selected">---请选择---</option>
+						<option value="0">传感器1</option>
+						<option value="1">传感器2</option>
+						<option value="2">传感器3</option>
+						<option value="3">传感器4</option>
+					</select>
+	 			</td>
+	 		</tr>
+	 		<tr>
+	 			<td width="142" class="STYLE1" nowrap="nowrap">通道编码：</td>
+	 			<td>
+					<div align="left" id="chtml">
+						<select id="channelName" name="channelName" >
+							<option value="0">---请选择---</option>
+							<option value="" selected="selected">---请选择---</option>
+							<option value="0">通道1</option>
+							<option value="1">通道2</option>
+							<option value="2">通道3</option>
+							<option value="3">通道4</option>
+						</select>
+					</div>	
+				</td>
+	 		</tr>
+<!-- 
+	 		<tr>
+	 			<td width="142" class="STYLE1" nowrap="nowrap">上上限：</td>
+	 			<td>
+ 					<input type="checkbox" id="upupenable" name="upupenable" value=""  onclick="javascript:upuplimitShow();" disabled/>
+					<input type="text" id="upuplimit" name="upuplimit" value=""  onkeyup="value=value.replace(/[^\d]/g,'')" onkeydown="javascript:inKey();" maxlength="9" disabled/>
+				</td>
+	 		</tr>
+-->
+      <tr>
+        <td width="142" class="STYLE1" nowrap="nowrap">上限：
+          <input type="checkbox" id="upenable" name="upenable" value=""  onclick="javascript:uplimitShow();" checked="checked" />
+        </td>
+        <td>
+          <input type="text"  id="uplimit" name="uplimit" value="" onkeyup="if(isNaN(value))execCommand('undo')" maxlength="9"/>
+        </td>
+      </tr>
+      <tr>
+        <td width="142" class="STYLE1" nowrap="nowrap">上限告警状态显示：</td>
+        <td>
+          <input type="text" id="upmemo" name="upmemo" value="" />
+        </td>
+      </tr>
+      
+	 		<tr>
+	 			<td width="142" class="STYLE1" nowrap="nowrap">下限：
+          <input type="checkbox"  id="lowenable" name="lowenable" value=""   onclick="javascript:lowlimitShow();" checked="checked"/>
+	 			</td>
+	 			<td>
+					<input type="text"  id="lowlimit" name="lowlimit" value="" onkeyup="if(isNaN(value))execCommand('undo')" maxlength="9"/>
+				</td>
+	 		</tr>
+      <tr>
+        <td width="142" class="STYLE1" nowrap="nowrap">下限告警状态显示：</td>
+        <td>
+          <input type="text" id="lowmemo" name="lowmemo" value="" />
+        </td>
+      </tr>
+      
+<!-- 
+	 		<tr>
+	 			<td width="142" class="STYLE1" nowrap="nowrap">下下限：</td>
+	 			<td>
+	 				<input type="checkbox"  id="lowlowenable" name="lowlowenable" onclick="javascript:lowlowlimitShow();" value="" disabled/>
+					<input type="text"  id="lowlowlimit" name="lowlowlimit" value=""  onkeyup="value=value.replace(/[^\d]/g,'')" onkeydown="javascript:inKey();" maxlength="9" disabled/>
+				</td>
+	 		</tr>
+-->
+	 		<tr>
+	 			<td>
+	 				<input type="button" id="facilitySubmit" name="channel" onclick="addChannelLimit()" value="提交"/>
+	 				
+	 			</td>
+	 		</tr>
+	 	</table>
+	 </div>
+</form>
+</body>
+</html>

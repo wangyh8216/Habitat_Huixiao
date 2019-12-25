@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <title>CSS3 iPhone样式的3D菜单DEMO演示</title>
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+	<script src="jump.js" type="text/javascript"></script>
+  <link rel='stylesheet prefetch' href='http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css'>
+
+    <link rel="stylesheet" href="css/style.css" media="screen" type="text/css" />
+
+</head>
+
+<body>
+
+  <!--
+Inspired by this dribble by The Purple Bunny:
+https://dribbble.com/shots/1677163-Menu
+-->
+<!-- <script>
+function asdf(){
+alert("111");}
+function jump_execution(){
+	alert("jump_execution");
+	window..location.href = "../../html/html5-canvas-roll/index.html" ;
+}
+function jump(){
+	alert("jump");
+	setTimeout(jump_execution(), 2000); //1秒就是1000
+}
+</script> -->
+
+<div class="container">
+  <input type="checkbox" class="toggle" id="toggle" checked=""/><label class="toggle" for="toggle">横屏显示</label>
+  <div class="menu">
+    <div class="top">
+      <span class="search">
+        <input type="text" value="开启您的体验之旅">
+      </span>
+      <a class="exit" href="#" tabindex="0"></a>
+    </div>
+    <ul class="middle">
+      <li tabindex="0"><i class="fa fa-calendar"></i>数据地图</li>
+      <li tabindex="0"><i class="fa fa-camera"></i>数据查看</li>
+      <li tabindex="0"><i class="fa fa-check-square-o"></i>历史曲线</li>
+      <li tabindex="0"><i class="fa fa-map-marker"></i>查看报警</li>
+      <li tabindex="0"><i class="fa fa-codepen"></i>网关设备管理</li>
+      <li tabindex="0"><i class="fa fa-dribbble"></i>传感器列表</li>
+      <li tabindex="0"><i class="fa fa-user"></i>传感器命名</li>
+      <a href = "javascript:void(0);" onclick=jump_delay()> <li tabindex="0"><i class="fa fa-cogs"></i>进入系统</li> </a> 
+	  <!-- <a href = "javascript:jump_delay();" onclick=jump_delay()>ssss</a>  -->
+    </ul>
+    <div class="bottom"></div>
+    <div class="menu-back"></div>
+    <div class="glass-reflection"></div>
+  </div>
+</div>
+
+<!-- <script>
+
+function jump_delay(){
+	alert("jump");
+	setTimeout(jump_execution(), 1000); //1秒就是1000
+}
+
+</script>
+<script>
+function jump_execution(){
+	alert("jump_execution");
+	window.location.href = "../../html/html5-canvas-roll/index.html" ;
+}
+
+
+</script> -->
+</body>
+
+</html>
